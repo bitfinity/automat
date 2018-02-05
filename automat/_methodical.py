@@ -113,7 +113,7 @@ class MethodicalState(object):
         inputArgs = _getArgNames(input.argSpec)
         for output in outputs:
             outputArgs = _getArgNames(output.argSpec)
-            if not outputArgs.issubset(inputArgs):
+            if not outputArgs.issubset(inputArgs) and not inputArgs.issubset(outputArgs):
                 raise TypeError(
                     "method {input} signature {inputSignature} "
                     "does not match output {output} "
