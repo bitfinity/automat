@@ -263,17 +263,17 @@ class MethodicalOutput(object):
     def _buildArgSpec(self):
         return _getArgSpec(self.method)
 
-    def __get__(self, oself, type=None):
-        """
-        Outputs are private, so raise an exception when we attempt to get one.
-        """
-        raise AttributeError(
-            "{cls}.{method} is a state-machine output method; "
-            "to produce this output, call an input method instead.".format(
-                cls=type.__name__,
-                method=self.method.__name__
-            )
-        )
+    # def __get__(self, oself, type=None):
+    #     """
+    #     Outputs are private, so raise an exception when we attempt to get one.
+    #     """
+    #     raise AttributeError(
+    #         "{cls}.{method} is a state-machine output method; "
+    #         "to produce this output, call an input method instead.".format(
+    #             cls=type.__name__,
+    #             method=self.method.__name__
+    #         )
+    #     )
 
 
     def __call__(self, oself, *args, **kwargs):
